@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Brasería · Restaurante</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:#0a0700;color:#f0ebe0;overflow-x:hidden;}
+:root{--gold:#c9a84c;--gold2:#e8c96d;--dark:#0a0700;--dark2:#130e00;--dark3:#1c1500;--text:#f0ebe0;--muted:rgba(240,235,224,0.6);--faint:rgba(240,235,224,0.3);--border:rgba(201,168,76,0.15);}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:72px;background:rgba(10,7,0,0.9);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);}
+.nav-brand{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold);letter-spacing:0.05em;}
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;letter-spacing:0.04em;transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-res{font-size:13px;font-weight:600;padding:9px 22px;border:1px solid var(--gold);color:var(--gold);border-radius:2px;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:all .2s;}
+.nav-res:hover{background:var(--gold);color:#000;}
+
+/* HERO */
+#inicio{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 6% 80px;position:relative;overflow:hidden;background:linear-gradient(160deg,#0a0700,#1c1000,#0a0700);}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(201,168,76,0.08),transparent);pointer-events:none;}
+.hero-line{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border:0.5px solid rgba(201,168,76,0.08);border-radius:50%;pointer-events:none;}
+.hero-line2{width:400px;height:400px;border-color:rgba(201,168,76,0.05);}
+.hero-eyebrow{position:relative;z-index:2;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;opacity:0.8;}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'——';opacity:0.4;margin:0 12px;}
+.hero-h1{position:relative;z-index:2;font-family:'Playfair Display',serif;font-size:clamp(48px,7vw,88px);font-weight:900;line-height:1.0;color:var(--text);margin-bottom:10px;letter-spacing:-0.01em;}
+.hero-h1 span{color:var(--gold);}
+.hero-sub{position:relative;z-index:2;font-size:16px;color:var(--muted);max-width:480px;margin:0 auto 44px;line-height:1.7;}
+.hero-actions{position:relative;z-index:2;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-gold{font-size:13px;font-weight:600;padding:14px 32px;background:var(--gold);color:#000;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s;}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);}
+.btn-outline{font-size:13px;font-weight:600;padding:14px 32px;background:transparent;color:var(--gold);border:1px solid var(--gold);letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:all .2s;}
+.btn-outline:hover{background:rgba(201,168,76,0.1);}
+
+/* SECCIONES */
+section{padding:96px 6%;}
+.sec-tag{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:14px;}
+.sec-h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.15;}
+.sec-sub{font-size:15px;color:var(--muted);max-width:500px;line-height:1.7;}
+
+/* ESPECIALIDADES */
+#especialidades{background:var(--dark2);}
+.esp-header{max-width:500px;margin-bottom:56px;}
+.esp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border);}
+.esp-item{background:var(--dark2);padding:32px;transition:background .2s;}
+.esp-item:hover{background:var(--dark3);}
+.esp-ico{font-size:32px;margin-bottom:16px;}
+.esp-name{font-family:'Playfair Display',serif;font-size:19px;font-weight:600;color:var(--text);margin-bottom:8px;}
+.esp-desc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:14px;}
+.esp-price{font-size:15px;font-weight:600;color:var(--gold);}
+
+/* NOSOTROS */
+#nosotros{background:var(--dark);}
+.nos-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.nos-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:36px;}
+.nos-stat{background:var(--dark);padding:24px;text-align:center;}
+.nos-stat .val{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold);}
+.nos-stat .lbl{font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;}
+.nos-right-box{background:var(--dark3);border:0.5px solid var(--border);padding:40px;position:relative;}
+.nos-right-box::before{content:'"';font-family:'Playfair Display',serif;font-size:120px;color:var(--gold);opacity:0.12;position:absolute;top:-20px;left:20px;line-height:1;}
+.nos-right-box blockquote{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--text);line-height:1.6;margin-bottom:20px;position:relative;z-index:1;}
+.nos-right-box cite{font-size:12px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;}
+
+/* MENU PREVIEW */
+#menu{background:var(--dark2);}
+.menu-tabs{display:flex;gap:0;border-bottom:0.5px solid var(--border);margin-bottom:40px;}
+.menu-tab{font-size:13px;font-weight:500;padding:12px 24px;color:var(--faint);cursor:pointer;letter-spacing:0.06em;text-transform:uppercase;border-bottom:2px solid transparent;transition:all .2s;}
+.menu-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+.menu-items{display:grid;gap:0;}
+.menu-item{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:0.5px solid var(--border);gap:16px;}
+.menu-item:last-child{border-bottom:none;}
+.mi-left{}
+.mi-name{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.mi-desc{font-size:12px;color:var(--faint);}
+.mi-price{font-size:17px;font-weight:700;color:var(--gold);white-space:nowrap;}
+
+/* RESERVAS */
+#reservas{background:linear-gradient(135deg,var(--dark),var(--dark2));}
+.res-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.res-form{background:var(--dark3);border:0.5px solid var(--border);padding:40px;}
+.res-form h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--text);margin-bottom:24px;}
+.fg{margin-bottom:16px;}
+.fg label{display:block;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-bottom:6px;}
+.fg input,.fg select{width:100%;background:rgba(255,255,255,0.04);border:0.5px solid rgba(201,168,76,0.2);padding:12px 14px;font-size:14px;color:var(--text);font-family:inherit;outline:none;transition:border-color .2s;}
+.fg input:focus,.fg select:focus{border-color:var(--gold);}
+.fg select option{background:#1c1500;}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.res-btn{width:100%;padding:14px;background:var(--gold);color:#000;border:none;font-size:14px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:inherit;transition:background .2s;}
+.res-btn:hover{background:var(--gold2);}
+.res-info{}
+.res-info .sec-sub{margin-bottom:36px;}
+.horarios{display:flex;flex-direction:column;gap:12px;}
+.horario{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:var(--dark3);border:0.5px solid var(--border);}
+.horario .dia{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;}
+.horario .hora{font-size:13px;font-weight:600;color:var(--gold);}
+
+/* UBICACION */
+#ubicacion{background:var(--dark);padding:72px 6%;}
+.ub-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px;}
+.ub-info h3{font-family:'Playfair Display',serif;font-size:28px;color:var(--text);margin-bottom:16px;}
+.ub-dato{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);margin-bottom:10px;}
+.ub-dato span{color:var(--gold);font-size:16px;}
+.ub-map{width:340px;height:200px;background:var(--dark3);border:0.5px solid var(--border);display:flex;align-items:center;justify-content:center;}
+.ub-map span{font-size:13px;color:var(--faint);}
+
+footer{background:#050300;border-top:0.5px solid var(--border);padding:32px 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+footer .brand{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold);}
+footer .copy{font-size:12px;color:var(--faint);}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:300;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#16a34a,#22c55e);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(34,197,94,0.5);text-decoration:none;transition:transform .2s;}
+.wa-float:hover{transform:scale(1.1);}
+.wa-float svg{width:28px;height:28px;fill:#fff;}
+
+@media(max-width:768px){.nav-links{display:none;}.nos-inner,.res-inner{grid-template-columns:1fr;gap:40px;}.fg-row{grid-template-columns:1fr;}.ub-map{width:100%;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">La Brasería</div>
+  <div class="nav-links">
+    <a href="#especialidades">Menú</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#reservas">Reservas</a>
+    <a href="#ubicacion">Ubicación</a>
+    <a href="#reservas" class="nav-res">Reservar mesa</a>
+  </div>
+</nav>
+
+<section id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+  <div class="hero-line hero-line2"></div>
+  <div style="position:relative;z-index:2;">
+    <div class="hero-eyebrow">Buenos Aires · Desde 1998</div>
+    <h1 class="hero-h1">Sabores que<br><span>no olvidás.</span></h1>
+    <p class="hero-sub">Cortes premium a la parrilla, vinos seleccionados y una experiencia gastronómica que te hace volver.</p>
+    <div class="hero-actions">
+      <a href="#reservas" class="btn-gold">Reservar mesa</a>
+      <a href="#especialidades" class="btn-outline">Ver menú</a>
+    </div>
+  </div>
+</section>
+
+<section id="especialidades">
+  <div class="esp-header">
+    <div class="sec-tag">Nuestras especialidades</div>
+    <h2 class="sec-h2">Cada plato, una obra de arte.</h2>
+    <p class="sec-sub">Ingredientes de estación, técnica impecable y pasión por la gastronomía argentina.</p>
+  </div>
+  <div class="esp-grid">
+    <div class="esp-item">
+      <div class="esp-ico">🥩</div>
+      <div class="esp-name">Bife de Chorizo</div>
+      <div class="esp-desc">Corte premium de 400g a la parrilla. Servido con chimichurri de la casa y papas rústicas.</div>
+      <div class="esp-price">$8.500</div>
+    </div>
+    <div class="esp-item">
+      <div class="esp-ico">🍷</div>
+      <div class="esp-name">Entraña a la Leña</div>
+      <div class="esp-desc">Cocción lenta sobre leña de quebracho. Jugosa, tierna e inigualable. Con ensalada de rúcula.</div>
+      <div class="esp-price">$7.200</div>
+    </div>
+    <div class="esp-item">
+      <div class="esp-ico">🫕</div>
+      <div class="esp-name">Provoleta Especial</div>
+      <div class="esp-desc">Provolone fundido con orégano, ají molido y un toque de aceite de oliva virgen extra.</div>
+      <div class="esp-price">$3.800</div>
+    </div>
+    <div class="esp-item">
+      <div class="esp-ico">🍮</div>
+      <div class="esp-name">Volcán de Chocolate</div>
+      <div class="esp-desc">Clásico tibio con corazón fundente, helado de vainilla artesanal y coulis de frutos rojos.</div>
+      <div class="esp-price">$2.900</div>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros">
+  <div class="nos-inner">
+    <div>
+      <div class="sec-tag">Nuestra historia</div>
+      <h2 class="sec-h2">25 años cocinando con alma.</h2>
+      <p class="sec-sub">Nacimos en 1998 con la misión de llevar la parrilla argentina a otro nivel. Hoy somos referencia en Buenos Aires.</p>
+      <div class="nos-stats">
+        <div class="nos-stat"><div class="val">25+</div><div class="lbl">Años de historia</div></div>
+        <div class="nos-stat"><div class="val">4.9</div><div class="lbl">Estrellas en Google</div></div>
+        <div class="nos-stat"><div class="val">500+</div><div class="lbl">Clientes por semana</div></div>
+        <div class="nos-stat"><div class="val">12</div><div class="lbl">Premios gastronómicos</div></div>
+      </div>
+    </div>
+    <div class="nos-right-box">
+      <blockquote>"La parrilla no es solo fuego y carne. Es ritual, es encuentro, es identidad."</blockquote>
+      <cite>— Chef Martín Solano, fundador</cite>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="sec-tag">Menú completo</div>
+  <h2 class="sec-h2" style="margin-bottom:32px;">Todo lo que tenemos para vos.</h2>
+  <div class="menu-tabs">
+    <div class="menu-tab active">Entradas</div>
+    <div class="menu-tab">Principales</div>
+    <div class="menu-tab">Postres</div>
+    <div class="menu-tab">Vinos</div>
+  </div>
+  <div class="menu-items">
+    <div class="menu-item"><div class="mi-left"><div class="mi-name">Tabla de embutidos</div><div class="mi-desc">Jamón crudo, salami, coppa y queso sardo</div></div><div class="mi-price">$4.200</div></div>
+    <div class="menu-item"><div class="mi-left"><div class="mi-name">Empanadas (x6)</div><div class="mi-desc">Carne cortada a cuchillo, humita o jamón y queso</div></div><div class="mi-price">$3.600</div></div>
+    <div class="menu-item"><div class="mi-left"><div class="mi-name">Provoleta especial</div><div class="mi-desc">Con orégano, ají molido y aceite de oliva</div></div><div class="mi-price">$3.800</div></div>
+    <div class="menu-item"><div class="mi-left"><div class="mi-name">Carpaccio de lomo</div><div class="mi-desc">Con rúcula, parmesano y reducción de balsámico</div></div><div class="mi-price">$5.100</div></div>
+  </div>
+</section>
+
+<section id="reservas">
+  <div class="res-inner">
+    <div class="res-info">
+      <div class="sec-tag">Reservas</div>
+      <h2 class="sec-h2">Asegurá tu mesa.</h2>
+      <p class="sec-sub" style="margin-bottom:36px;">Reservás en minutos y garantizás tu lugar para la noche que más te guste.</p>
+      <div class="horarios">
+        <div class="horario"><span class="dia">Martes a Viernes</span><span class="hora">20:00 — 00:00</span></div>
+        <div class="horario"><span class="dia">Sábados</span><span class="hora">12:00 — 16:00 · 20:00 — 01:00</span></div>
+        <div class="horario"><span class="dia">Domingos</span><span class="hora">12:00 — 17:00</span></div>
+        <div class="horario"><span class="dia">Lunes</span><span class="hora" style="color:var(--faint);">Cerrado</span></div>
+      </div>
+    </div>
+    <div class="res-form">
+      <h3>Hacé tu reserva</h3>
+      <div class="fg-row">
+        <div class="fg"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
+        <div class="fg"><label>Teléfono</label><input type="text" placeholder="11 1234-5678"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label>Fecha</label><input type="date"></div>
+        <div class="fg"><label>Hora</label><select><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option></select></div>
+      </div>
+      <div class="fg"><label>Personas</label><select><option>1-2 personas</option><option>3-4 personas</option><option>5-6 personas</option><option>+6 personas</option></select></div>
+      <button class="res-btn">Confirmar reserva</button>
+    </div>
+  </div>
+</section>
+
+<div id="ubicacion">
+  <div class="ub-inner">
+    <div class="ub-info">
+      <h3>¿Dónde estamos?</h3>
+      <div class="ub-dato"><span>📍</span>Av. Corrientes 1234, CABA</div>
+      <div class="ub-dato"><span>📞</span>11 4567-8901</div>
+      <div class="ub-dato"><span>📧</span>reservas@labraseria.com</div>
+      <div style="margin-top:20px;"><a href="https://wa.me/541140347468" class="btn-gold" style="display:inline-block;">Reservar por WhatsApp</a></div>
+    </div>
+    <div class="ub-map"><span>📍 Ver en Google Maps</span></div>
+  </div>
+</div>
+
+<footer>
+  <div class="brand">La Brasería</div>
+  <div class="copy">© 2025 La Brasería · Buenos Aires · Diseño por Presence</div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/541140347468" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 1.998C6.475 1.998 2 6.473 2 11.996c0 1.76.463 3.513 1.34 5.053L2 22l5.109-1.322A9.946 9.946 0 0 0 12 21.994c5.523 0 9.998-4.475 9.998-9.998s-4.475-9.998-9.998-9.998z"/></svg>
+</a>
+</body>
+</html>
